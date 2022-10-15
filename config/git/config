@@ -1,24 +1,18 @@
 [user]
-	name = Henrik Lissner
-	email = git@henrik.io
-	signingKey = FA1FADD9440B688CAA75A057B60957CA074D39A3
-[commit]
-	gpgSign = true
-[tag]
-	gpgSign = true
+	name = Bernhard Specht
+	email = bernhard@specht.net
 [core]
 	whitespace = trailing-space
 [init]
 	defaultBranch = main
 [github]
-	user = hlissner
+	user = spebern
 [gitlab]
-	user = hlissner
+	user = spebern
 [push]
 	autoSquash = true
 [push]
 	default = current
-	gpgSign = if-asked
 [pull]
 	rebase = true
 [alias]
