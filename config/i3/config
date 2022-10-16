@@ -6,7 +6,7 @@ set $alt Mod1
 floating_modifier $super
 
 # start a terminal
-bindsym $super+Return exec st
+bindsym $super+Return exec alacritty
 
 # start dmenu (a program launcher)
 bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
