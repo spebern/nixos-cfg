@@ -14,10 +14,9 @@
         # godot.enable = true;
       };
       browsers = {
-        default = "brave";
-        brave.enable = true;
+        default = "chrome";
+        chrome.enable = true;
         firefox.enable = true;
-        qutebrowser.enable = true;
       };
       gaming = {
         steam.enable = true;
