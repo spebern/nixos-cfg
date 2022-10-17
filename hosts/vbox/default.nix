@@ -48,7 +48,7 @@
       default = "nvim";
       emacs = {
         enable = true;
-	doom.enable = true;
+        doom.enable = true;
       };
       vim.enable = true;
     };
