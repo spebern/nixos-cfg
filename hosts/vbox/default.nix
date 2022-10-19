@@ -5,13 +5,13 @@
     ./hardware-configuration.nix
   ];
 
-  ## Modules
   modules = {
     desktop = {
+      # sway.enable = true;
       i3.enable = true;
       apps = {
         rofi.enable = true;
-        # godot.enable = true;
+        # waybar.enable = true;
       };
       browsers = {
         default = "chrome";
@@ -20,8 +20,6 @@
       };
       gaming = {
         steam.enable = true;
-        # emulators.enable = true;
-        # emulators.psx.enable = true;
       };
       media = {
         daw.enable = true;
@@ -42,6 +40,7 @@
     dev = {
       node.enable = true;
       rust.enable = true;
+      cc.enable = true;
       # python.enable = true;
     };
     editors = {
@@ -54,7 +53,6 @@
     };
     shell = {
       adl.enable = true;
-      # vaultwarden.enable = true;
       direnv.enable = true;
       git.enable    = true;
       gnupg.enable  = true;

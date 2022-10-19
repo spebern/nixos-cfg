@@ -28,8 +28,11 @@ in {
       wayvnc
       dunst
       libnotify
-      swaylock
+      swaylock-fancy
       rofi
+      kanshi
+      networkmanagerapplet
+      blueman
       (polybar.override {
         pulseSupport = true;
         nlSupport = true;
@@ -55,10 +58,10 @@ in {
       # };
     };
 
-    # programs.sway = {
-    #   enable = true;
-    #   wrapperFeatures.gtk = true;
-    # };
+    programs.sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+    };
 
     xdg.portal = {
       enable = true;
@@ -79,6 +82,20 @@ in {
 
         startup = [
           {command = "${pkgs.autotiling}/bin/autotiling"; always = true;}
+          {command = "systemctl --user restart waybar"; always = true; }
+          {command = ''
+             ${pkgs.swayidle}/bin/swayidle -w \
+              before-sleep '${pkgs.swaylock-fancy}/bin/swaylock-fancy'
+            ''; always = true;}
+          {command = ''
+            ${pkgs.swayidle}/bin/swayidle \
+              timeout 120 '${pkgs.swaylock-fancy}/bin/swaylock-fancy' \
+              timeout 240 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+              before-sleep '${pkgs.swaylock-fancy}/bin/swaylock-fancy'
+            ''; always = true;}                            # Auto lock\
+          {command = "${pkgs.blueman}/bin/blueman-applet"; always = true;}
+          {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; always = true;}
         ];
 
         bars = [];
@@ -88,12 +105,31 @@ in {
           size = 10.0;
         };
 
-        # output = {
-        #   "*".scale = "1";
-        # };
+        gaps = {
+          smartBorders = "on";
+          outer = 0;
+        };
+
+        input = {
+          "type:touchpad" = {
+            tap = "disabled";
+            dwt = "enabled";
+            scroll_method = "two_finger";
+            middle_emulation = "enabled";
+            natural_scroll = "enabled";
+          };
+          "type:keyboard" = {
+            xkb_layout = "us";
+            xkb_numlock = "enabled";
+          };
+        };
+
+        output = {
+          "*".scale = "1.5";
+        };
 
         colors.focused = {
-          background = "#999999";
+          background = "#000000";
           border = "#999999";
           childBorder = "#999999";
           indicator = "#212121";
@@ -151,6 +187,14 @@ in {
           "Control+Right" = "resize grow width 20px";
         };
       };
+
+      extraConfig = ''
+        for_window [app_id="pcmanfm"] floating enable
+        for_window [app_id="pavucontrol"] floating enable, sticky
+        for_window [app_id=".blueman-manager-wrapped"] floating enable
+        for_window [title="Picture in picture"] floating enable, move p>
+      '';
+
       extraSessionCommands = ''
       #export WLR_NO_HARDWARE_CURSORS="1";  # Needed for cursor in vm
       export XDG_SESSION_TYPE=wayland
