@@ -67,6 +67,7 @@
       ssh.enable = true;
       docker.enable = true;
       onedrive.enable = true;
+      blueman.enable = true;
     };
     hardware = {
       wifi.enable = true;
