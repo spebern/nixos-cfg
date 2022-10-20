@@ -89,8 +89,8 @@ in {
             ''; always = true;}
           {command = ''
             ${pkgs.swayidle}/bin/swayidle \
-              timeout 120 '${pkgs.swaylock-fancy}/bin/swaylock-fancy' \
-              timeout 240 'swaymsg "output * dpms off"' \
+              timeout 240 '${pkgs.swaylock-fancy}/bin/swaylock-fancy' \
+              timeout 480 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
               before-sleep '${pkgs.swaylock-fancy}/bin/swaylock-fancy'
             ''; always = true;}                            # Auto lock\
