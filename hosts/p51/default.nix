@@ -13,6 +13,10 @@
         rofi.enable = true;
         waybar.enable = true;
       };
+      com = {
+        discord.enable = true;
+        teams.enable = true;
+      };
       browsers = {
         default = "chrome";
         chrome.enable = true;
