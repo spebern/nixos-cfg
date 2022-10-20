@@ -21,7 +21,10 @@ in {
 
   config = mkMerge [
     (mkIf cfg.enable {
-      user.packages = [ pkgs.rustup ];
+      user.packages = [
+        pkgs.rustup
+        pkgs.unstable.rust-analyzer
+      ];
       env.PATH = [ "$(${pkgs.yarn}/bin/yarn global bin)" ];
       environment.shellAliases = {
         rs  = "rustc";
