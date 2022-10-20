@@ -86,31 +86,10 @@ in {
 
         "sway/workspaces" = {
           format = "<span font='12'>{icon}</span>";
-          format-icons = {
-            "1"="";
-            "2"="";
-            "3"="";
-            "4"="";
-            "5"="";
-          };
           all-outputs = true;
-          persistent_workspaces = {
-             "1" = [];
-             "2" = [];
-             "3" = [];
-             "4" = [];
-             "5" = [];
-          };
         };
         "wlr/workspaces" = {
           format = "<span font='12'>{icon}</span>";
-          format-icons = {
-            "1"="";
-            "2"="";
-            "3"="";
-            "4"="";
-            "5"="";
-          };
           all-outputs = true;
           active-only = false;
           on-click = "activate";
