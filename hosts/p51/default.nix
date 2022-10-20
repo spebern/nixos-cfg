@@ -7,7 +7,10 @@
 
   modules = {
     desktop = {
-      sway.enable = true;
+      sway = {
+        enable = true;
+        scale = "2.0";
+      };
       # i3.enable = true;
       apps = {
         rofi.enable = true;

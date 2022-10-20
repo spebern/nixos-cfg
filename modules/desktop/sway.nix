@@ -7,6 +7,7 @@ let cfg = config.modules.desktop.sway;
 in {
   options.modules.desktop.sway = {
     enable = mkBoolOpt false;
+    scale = mkOpt types.str "1.5";
   };
 
   config = mkIf cfg.enable {
@@ -125,7 +126,7 @@ in {
         };
 
         output = {
-          "*".scale = "1.5";
+          "*".scale = cfg.scale;
         };
 
         colors.focused = {
