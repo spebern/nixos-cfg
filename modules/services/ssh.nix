@@ -13,6 +13,10 @@ in {
       enable = true;
       kbdInteractiveAuthentication = false;
       passwordAuthentication = false;
+      allowSFTP = true;
+      extraConfig = ''
+        HostKeyAlgorithms +ssh-rsa
+      '';
     };
 
     user.openssh.authorizedKeys.keys =
