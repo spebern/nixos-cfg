@@ -141,7 +141,6 @@ in {
           "${modifier}+Escape" = "exec swaymsg exit";     # Exit Sway
           "${modifier}+Return" = "exec ${terminal}";      # Open terminal
           "${modifier}+d" = "exec ${menu}";           # Open menu
-          "${modifier}+e" = "exec ${pkgs.pcmanfm}/bin/pcmanfm"; # File Manager
           "Control+Shift+l" = "exec ${pkgs.swaylock-fancy}/bin/swaylock-fancy"; # Lock Screen
 
           "${modifier}+r" = "reload";                     # Reload environment
@@ -186,6 +185,10 @@ in {
           "Control+Down" = "resize grow height 20px";
           "Control+Left" = "resize shrink width 20px";
           "Control+Right" = "resize grow width 20px";
+
+          "${modifier}+s" = "layout stacking";
+          "${modifier}+w" = "layout tabbed";
+          "${modifier}+e" = "layout toggle split";
         };
       };
 
