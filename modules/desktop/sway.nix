@@ -149,13 +149,13 @@ in {
 
           "${modifier}+h" = "focus left";
           "${modifier}+l" = "focus right";
-          "${modifier}+j" = "focus up";
-          "${modifier}+k" = "focus down";
+          "${modifier}+k" = "focus up";
+          "${modifier}+j" = "focus down";
 
           "${modifier}+Shift+h" = "move left";
           "${modifier}+Shift+l" = "move right";
-          "${modifier}+Shift+j" = "move up";
-          "${modifier}+Shift+k" = "move down";
+          "${modifier}+Shift+k" = "move up";
+          "${modifier}+Shift+j" = "move down";
 
           "${modifier}+1" = "workspace number 1";
           "${modifier}+2" = "workspace number 2";
