@@ -139,7 +139,7 @@ in {
         keybindings = {                                   # Hotkeys
           "${modifier}+Escape" = "exec swaymsg exit";     # Exit Sway
           "${modifier}+Return" = "exec ${terminal}";      # Open terminal
-          "${modifier}+space" = "exec ${menu}";           # Open menu
+          "${modifier}+d" = "exec ${menu}";           # Open menu
           "${modifier}+e" = "exec ${pkgs.pcmanfm}/bin/pcmanfm"; # File Manager
           "Control+Shift+l" = "exec ${pkgs.swaylock-fancy}/bin/swaylock-fancy"; # Lock Screen
 
