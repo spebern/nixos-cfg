@@ -2,16 +2,15 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.apps.skype;
+let cfg = config.modules.desktop.com.skype;
 in {
-  options.modules.desktop.apps.skype = {
+  options.modules.desktop.com.skype = {
     enable = mkBoolOpt false;
   };
 
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
       skypeforlinux
-      skype_call_recorder
     ];
   };
 }
