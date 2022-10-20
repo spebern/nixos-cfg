@@ -58,7 +58,7 @@ in {
           background-color: rgb(0,152,208);
         }
         #workspaces button.focused {
-          color: rgb(0,152,208);
+          border-bottom: 3px solid #00ff00;
         }
         #battery.warning {
           color: #ff5d17;
