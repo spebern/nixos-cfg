@@ -84,9 +84,11 @@
     };
   };
 
-  ## Local config
   programs.ssh.startAgent = true;
   services.openssh.startWhenNeeded = true;
 
   networking.networkmanager.enable = true;
+
+  powerManagement.powertop.enable = true;
+  services.tlp.enable = true;
 }
