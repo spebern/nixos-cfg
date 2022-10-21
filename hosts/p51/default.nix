@@ -48,6 +48,7 @@
       node.enable = true;
       rust.enable = true;
       cc.enable = true;
+      nix.enable = true;
       # python.enable = true;
     };
     editors = {
