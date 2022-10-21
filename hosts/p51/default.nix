@@ -13,7 +13,6 @@
       };
       # i3.enable = true;
       apps = {
-        rofi.enable = true;
         waybar.enable = true;
       };
       com = {

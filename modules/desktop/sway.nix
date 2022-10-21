@@ -30,7 +30,7 @@ in {
       dunst
       libnotify
       swaylock-fancy
-      rofi
+      wofi
       kanshi
       networkmanagerapplet
       blueman
@@ -79,7 +79,7 @@ in {
       config = rec {
         modifier = "Mod4";
         terminal = "${pkgs.alacritty}/bin/alacritty";
-        menu = "${pkgs.rofi}/bin/rofi -show drun";
+        menu = "${pkgs.wofi}/bin/wofi --show drun -i";
 
         startup = [
           {command = "${pkgs.autotiling}/bin/autotiling"; always = true;}
@@ -172,7 +172,8 @@ in {
           "Alt+Shift+Right" = "move container to workspace next, workspace next";
 
           "${modifier}+Shift+1" = "move container to workspace number 1";
-          "${modifier}+Shift+2" = "move container to workspace number 3";
+          "${modifier}+Shift+2" = "move container to workspace number 2";
+          "${modifier}+Shift+3" = "move container to workspace number 3";
           "${modifier}+Shift+4" = "move container to workspace number 4";
           "${modifier}+Shift+5" = "move container to workspace number 5";
           "${modifier}+Shift+6" = "move container to workspace number 6";

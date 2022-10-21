@@ -20,6 +20,7 @@ in {
       dunst
       libnotify
       i3lock
+      rofi
       (polybar.override {
         pulseSupport = true;
         nlSupport = true;
