@@ -11,7 +11,7 @@
         enable = true;
         scale = "2.0";
       };
-      # i3.enable = true;
+      i3.enable = true;
       apps = {
         waybar.enable = true;
         pavucontrol.enable = true;

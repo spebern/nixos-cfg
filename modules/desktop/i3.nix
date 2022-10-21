@@ -30,15 +30,7 @@ in {
     services = {
       picom.enable = true;
       redshift.enable = true;
-      xserver = {
-        enable = true;
-        displayManager = {
-          defaultSession = "none+i3";
-          lightdm.enable = true;
-          lightdm.greeters.mini.enable = true;
-        };
-        windowManager.i3.enable = true;
-      };
+      xserver.windowManager.i3.enable = true;
     };
 
     systemd.user.services."dunst" = {
