@@ -72,6 +72,7 @@
       docker.enable = true;
       onedrive.enable = true;
       blueman.enable = true;
+      mlocate.enable = true;
     };
     hardware = {
       wifi.enable = true;
