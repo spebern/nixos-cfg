@@ -14,7 +14,6 @@
       i3.enable = true;
       apps = {
         waybar.enable = true;
-        pavucontrol.enable = true;
       };
       com = {
         discord.enable = true;
