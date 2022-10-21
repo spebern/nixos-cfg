@@ -80,6 +80,17 @@
     theme.active = "alucard";
   };
 
+  services = {
+    xserver = {
+      enable = true;
+      displayManager = {
+        sddm = {
+          enable = true;
+        };
+        defaultSession = "sway";
+      };
+    };
+  };
 
   ## Local config
   programs.ssh.startAgent = true;
