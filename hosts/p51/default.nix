@@ -25,14 +25,8 @@
         chrome.enable = true;
         firefox.enable = true;
       };
-      gaming = {
-        steam.enable = true;
-      };
       media = {
-        daw.enable = true;
         documents.enable = true;
-        graphics.enable = true;
-        mpv.enable = true;
         recording.enable = true;
         spotify.enable = true;
       };
@@ -60,11 +54,9 @@
       vim.enable = true;
     };
     shell = {
-      adl.enable = true;
       direnv.enable = true;
       git.enable = true;
       gnupg.enable = true;
-      tmux.enable = true;
       zsh.enable = true;
     };
     services = {
