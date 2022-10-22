@@ -89,12 +89,22 @@
         "intel"
       ];
     };
+    logind = {
+      lidSwitch = "hibernate";
+      lidSwitchDocked = "hibernate";
+      lidSwitchExternalPower = "hibernate";
+    };
+    tlp = {
+      enable = true;
+      settings = {
+        WIFI_PWR_ON_AC = "off";
+        WIFI_PWR_ON_BAT = "off";
+      };
+    };
+    openssh.startWhenNeeded = true;
   };
 
   programs.ssh.startAgent = true;
-  services.openssh.startWhenNeeded = true;
-
   networking.networkmanager.enable = true;
   powerManagement.powertop.enable = true;
-  services.tlp.enable = true;
 }
