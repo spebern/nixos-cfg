@@ -2,8 +2,11 @@
 {
   imports = [
     ../home.nix
+    <nixos-hardware/lenovo/thinkpad/p50>
     ./hardware-configuration.nix
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   modules = {
     desktop = {
