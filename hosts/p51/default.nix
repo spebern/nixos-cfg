@@ -24,8 +24,8 @@
         teams.enable = true;
       };
       browsers = {
-        default = "chrome";
-        chrome.enable = true;
+        default = "google-chrome";
+        google-chrome.enable = true;
         firefox.enable = true;
       };
       media = {

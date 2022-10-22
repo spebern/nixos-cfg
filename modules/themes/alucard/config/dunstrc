@@ -2,7 +2,7 @@
 ''
 [global]
 alignment = left
-browser = firefox -new-tab
+browser = google-chrome-stable
 corner_radius = 2
 dmenu = rofi -dmenu -p dunst:
 follow = none

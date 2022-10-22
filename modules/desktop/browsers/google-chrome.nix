@@ -2,9 +2,9 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.browsers.chrome;
+let cfg = config.modules.desktop.browsers.google-chrome;
 in {
-  options.modules.desktop.browsers.chrome = {
+  options.modules.desktop.browsers.google-chrome = {
     enable = mkBoolOpt false;
   };
 
@@ -15,7 +15,7 @@ in {
         name = "google-chrome";
         desktopName = "Google Chrome";
         icon = "chrome";
-        exec = "${google-chrome}/bin/google";
+        exec = "${pkgs.google-chrome}/bin/google-chrome-stable";
         categories = [ "Network" ];
       })
     ];
