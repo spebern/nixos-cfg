@@ -29,7 +29,7 @@ in {
       wayvnc
       dunst
       libnotify
-      swaylock-fancy
+      swaylock
       wofi
       kanshi
       networkmanagerapplet
@@ -86,14 +86,14 @@ in {
           {command = "systemctl --user restart waybar"; always = true; }
           {command = ''
              ${pkgs.swayidle}/bin/swayidle -w \
-              before-sleep '${pkgs.swaylock-fancy}/bin/swaylock-fancy'
+              before-sleep '${pkgs.swaylock}/bin/swaylock'
             ''; always = true;}
           {command = ''
             ${pkgs.swayidle}/bin/swayidle \
-              timeout 240 '${pkgs.swaylock-fancy}/bin/swaylock-fancy' \
+              timeout 240 '${pkgs.swaylock}/bin/swaylock' \
               timeout 480 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
-              before-sleep '${pkgs.swaylock-fancy}/bin/swaylock-fancy'
+              before-sleep '${pkgs.swaylock}/bin/swaylock'
             ''; always = true;}                            # Auto lock\
           {command = "${pkgs.blueman}/bin/blueman-applet"; always = true;}
           {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; always = true;}
@@ -141,7 +141,7 @@ in {
           "${modifier}+Escape" = "exec swaymsg exit";     # Exit Sway
           "${modifier}+Return" = "exec ${terminal}";      # Open terminal
           "${modifier}+d" = "exec ${menu}";           # Open menu
-          "Control+Shift+l" = "exec ${pkgs.swaylock-fancy}/bin/swaylock-fancy"; # Lock Screen
+          "Control+Shift+l" = "exec ${pkgs.swaylock}/bin/swaylock"; # Lock Screen
 
           "${modifier}+r" = "reload";                     # Reload environment
           "${modifier}+Shift+q" = "kill";                       # Kill container
