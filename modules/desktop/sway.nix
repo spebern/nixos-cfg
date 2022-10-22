@@ -41,14 +41,6 @@ in {
     ];
 
     services = {
-      # greetd = {
-      #   enable = true;
-      #   settings = {
-      #     default_session = {
-      #       command = "${pkgs.sway}/bin/sway";
-      #     };
-      #   };
-      # };
       pipewire = {
         enable = true;
         alsa.enable = true;
@@ -62,15 +54,6 @@ in {
     programs.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
-    };
-
-    xdg.portal = {
-      enable = true;
-      wlr.enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-      ];
-      # gtkUsePortal = true;
     };
 
     home-manager.users.${config.user.name}.wayland.windowManager.sway = {
