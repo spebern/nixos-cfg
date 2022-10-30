@@ -124,4 +124,6 @@
       defaultSession = "sway";
     };
   };
+
+  services.flatpak.enable = true;
 }
