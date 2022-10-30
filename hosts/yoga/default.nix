@@ -94,6 +94,9 @@
         ntfs.enable = true;
       };
     };
+    network = {
+      openvpn.enable = true;
+    };
     theme.active = "alucard";
   };
 
