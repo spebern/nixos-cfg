@@ -2,9 +2,11 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.sway;
-    configDir = config.dotfiles.configDir;
-in {
+let
+  cfg = config.modules.desktop.sway;
+  configDir = config.dotfiles.configDir;
+in
+{
   options.modules.desktop.sway = {
     enable = mkBoolOpt false;
     scale = mkOpt types.str "1.5";
@@ -46,14 +48,26 @@ in {
         alsa.enable = true;
         pulse.enable = true;
       };
-      # dbus = {
-      #   enable = true;
-      # };
+      dbus = {
+        enable = true;
+      };
     };
 
     programs.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
+    };
+
+
+    xdg.portal = {
+      enable = true;
+      wlr.enable = true;
+      # gtk portal needed to make gtk apps happy
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-gnome
+      ];
+      # gtkUsePortal = true;
     };
 
     home-manager.users.${config.user.name}.wayland.windowManager.sway = {
@@ -65,24 +79,30 @@ in {
         menu = "${pkgs.wofi}/bin/wofi --show drun -i";
 
         startup = [
-          {command = "${pkgs.autotiling}/bin/autotiling"; always = true;}
-          {command = "systemctl --user restart waybar"; always = true; }
-          {command = ''
-             ${pkgs.swayidle}/bin/swayidle -w \
-              before-sleep '${pkgs.swaylock}/bin/swaylock'
-            ''; always = true;}
-          {command = ''
-            ${pkgs.swayidle}/bin/swayidle \
-              timeout 240 '${pkgs.swaylock}/bin/swaylock' \
-              timeout 480 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-              before-sleep '${pkgs.swaylock}/bin/swaylock'
-            ''; always = true;}                            # Auto lock\
-          {command = "${pkgs.blueman}/bin/blueman-applet"; always = true;}
-          {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; always = true;}
+          { command = "${pkgs.autotiling}/bin/autotiling"; always = true; }
+          { command = "systemctl --user restart waybar"; always = true; }
+          {
+            command = ''
+              ${pkgs.swayidle}/bin/swayidle -w \
+               before-sleep '${pkgs.swaylock}/bin/swaylock'
+            '';
+            always = true;
+          }
+          {
+            command = ''
+              ${pkgs.swayidle}/bin/swayidle \
+                timeout 240 '${pkgs.swaylock}/bin/swaylock' \
+                timeout 480 'swaymsg "output * dpms off"' \
+                resume 'swaymsg "output * dpms on"' \
+                before-sleep '${pkgs.swaylock}/bin/swaylock'
+            '';
+            always = true;
+          } # Auto lock\
+          { command = "${pkgs.blueman}/bin/blueman-applet"; always = true; }
+          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; always = true; }
         ];
 
-        bars = [];
+        bars = [ ];
 
         fonts = {
           names = [ "Source Code Pro" ];
@@ -120,15 +140,16 @@ in {
           text = "#999999";
         };
 
-        keybindings = {                                   # Hotkeys
-          "${modifier}+Escape" = "exec swaymsg exit";     # Exit Sway
-          "${modifier}+Return" = "exec ${terminal}";      # Open terminal
-          "${modifier}+d" = "exec ${menu}";           # Open menu
+        keybindings = {
+          # Hotkeys
+          "${modifier}+Escape" = "exec swaymsg exit"; # Exit Sway
+          "${modifier}+Return" = "exec ${terminal}"; # Open terminal
+          "${modifier}+d" = "exec ${menu}"; # Open menu
           "Control+Shift+l" = "exec ${pkgs.swaylock}/bin/swaylock"; # Lock Screen
 
-          "${modifier}+r" = "reload";                     # Reload environment
-          "${modifier}+Shift+q" = "kill";                       # Kill container
-          "${modifier}+f" = "fullscreen toggle";          # Fullscreen
+          "${modifier}+r" = "reload"; # Reload environment
+          "${modifier}+Shift+q" = "kill"; # Kill container
+          "${modifier}+f" = "fullscreen toggle"; # Fullscreen
 
           "${modifier}+h" = "focus left";
           "${modifier}+l" = "focus right";
@@ -151,7 +172,7 @@ in {
           "${modifier}+9" = "workspace number 9";
           "${modifier}+0" = "workspace number 10";
 
-          "Alt+Shift+Left" = "move container to workspace prev, workspace prev";    # Move container to next available workspace and focus
+          "Alt+Shift+Left" = "move container to workspace prev, workspace prev"; # Move container to next available workspace and focus
           "Alt+Shift+Right" = "move container to workspace next, workspace next";
 
           "${modifier}+Shift+1" = "move container to workspace number 1";
@@ -187,10 +208,10 @@ in {
       '';
 
       extraSessionCommands = ''
-      #export WLR_NO_HARDWARE_CURSORS="1";  # Needed for cursor in vm
-      export XDG_SESSION_TYPE=wayland
-      export XDG_SESSION_DESKTOP=sway
-      export XDG_CURRENT_DESKTOP=sway
+        #export WLR_NO_HARDWARE_CURSORS="1";  # Needed for cursor in vm
+        export XDG_SESSION_TYPE=wayland
+        export XDG_SESSION_DESKTOP=sway
+        export XDG_CURRENT_DESKTOP=sway
       '';
     };
   };
