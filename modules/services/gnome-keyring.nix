@@ -3,6 +3,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.services.gnome-keyring;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.services.gnome-keyring = {
     enable = mkBoolOpt false;
@@ -19,5 +20,13 @@ in {
     user.packages = with pkgs; [
       gnome.seahorse
     ];
+
+    home.configFile = {
+      "zsh/gnome-keyring.zshrc".text = ''
+        export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
+      '';
+    };
+
+    modules.shell.zsh.rcFiles = [ "${configDir}/gnome-keyring/default.zsh" ];
   };
 }
