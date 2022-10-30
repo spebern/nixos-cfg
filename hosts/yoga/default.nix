@@ -102,18 +102,7 @@
   };
 
   services = {
-    logind = {
-      lidSwitch = "hibernate";
-      lidSwitchDocked = "hibernate";
-      lidSwitchExternalPower = "hibernate";
-    };
-    tlp = {
-      enable = true;
-      settings = {
-        WIFI_PWR_ON_AC = "off";
-        WIFI_PWR_ON_BAT = "off";
-      };
-    };
+    tlp.enable = true;
     openssh.startWhenNeeded = true;
   };
 
