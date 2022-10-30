@@ -54,6 +54,7 @@
       };
       vm = {
         qemu.enable = true;
+        virt-manager.enable = true;
       };
     };
     dev = {
