@@ -19,13 +19,19 @@ in {
   config = mkMerge [
     (mkIf cfg.enable {
       user.packages = with pkgs; [
-        python310
-        python310Packages.pip
-        python310Packages.ipython
-        python310Packages.black
-        python310Packages.setuptools
-        python310Packages.pylint
-        python310Packages.poetry
+        texlive.combined.scheme-medium
+        (python310.withPackages(ps: with ps; [
+          jupyter
+          ipykernel
+          jupyterlab
+          pip
+          ipython
+          black
+          setuptools
+          pylint
+          poetry
+          matplotlib
+        ]))
       ];
 
       environment.shellAliases = {
