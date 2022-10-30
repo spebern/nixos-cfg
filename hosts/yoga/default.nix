@@ -61,6 +61,7 @@
       rust.enable = true;
       cc.enable = true;
       nix.enable = true;
+      go.enable = true;
       # python.enable = true;
     };
     editors = {
