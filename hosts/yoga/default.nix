@@ -63,7 +63,7 @@
       cc.enable = true;
       nix.enable = true;
       go.enable = true;
-      # python.enable = true;
+      python.enable = true;
     };
     editors = {
       default = "nvim";
