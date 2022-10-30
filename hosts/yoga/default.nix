@@ -86,6 +86,10 @@
     };
     hardware = {
       wifi.enable = true;
+      fs = {
+        enable = true;
+        ntfs.enable = true;
+      };
     };
     theme.active = "alucard";
   };
