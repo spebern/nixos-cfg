@@ -7,12 +7,18 @@ let cfg = config.modules.desktop.apps.waybar;
 in {
   options.modules.desktop.apps.waybar = {
     enable = mkBoolOpt false;
+    lightDevice = mkOpt types.str "amdgpu_bl0";
   };
 
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
       waybar
     ];
+
+    programs.light.enable = true;
+    services.udev.extraRules = ''
+        ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="${cfg.lightDevice}", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
+    '';
 
     home-manager.users.${config.user.name}.programs.waybar = {
       enable = true;
@@ -44,6 +50,7 @@ in {
         #window,
         #cpu,
         #disk,
+        #backlight,
         #battery,
         #tray {
           color: #ffffff;
@@ -80,9 +87,7 @@ in {
         tray = { spacing = 10; };
         modules-center = [ "clock" ];
         modules-left = [ "sway/workspaces" "sway/mode" ];
-        #modules-left = [ "wlr/workspaces" ];
-        modules-right = [ "cpu" "memory" "disk" "pulseaudio" "battery" "tray" ];
-        #modules-right = [ "cpu" "memory" "pulseaudio" "clock" "tray" ];
+        modules-right = [ "cpu" "memory" "disk" "pulseaudio" "backlight" "battery" "tray" ];
 
         "sway/workspaces" = {
           format = "<span font='12'>{icon}</span>";
@@ -98,6 +103,13 @@ in {
           format = "{:%b %d %H:%M}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           format-alt = "{:%A, %B %d, %Y} ";
+        };
+        backlight = {
+          device = "${cfg.lightDevice}";
+          format = "{percent}% {icon}";
+          format-icons = ["" ""];
+          on-scroll-up = "${pkgs.light}/bin/light -T 1.1";
+          on-scroll-down = "${pkgs.light}/bin/light -T 0.9";
         };
         cpu = {
           format = "{usage}% <span font='11'></span>";
