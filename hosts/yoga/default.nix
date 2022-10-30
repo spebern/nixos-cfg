@@ -36,6 +36,7 @@
       com = {
         discord.enable = true;
         teams.enable = true;
+        evolution.enable = true;
       };
       browsers = {
         default = "google-chrome";
