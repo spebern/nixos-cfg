@@ -14,6 +14,7 @@ in {
       components = ["pkcs11" "secrets" "ssh"];
     };
     security.pam.services.greetd.enableGnomeKeyring = true;
+    security.pam.services.sddm.enableGnomeKeyring = true;
 
     user.packages = with pkgs; [
       gnome.seahorse
