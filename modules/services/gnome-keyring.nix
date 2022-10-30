@@ -2,21 +2,27 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.services.gnome-keyring;
-    configDir = config.dotfiles.configDir;
-in {
+let
+  cfg = config.modules.services.gnome-keyring;
+  configDir = config.dotfiles.configDir;
+in
+{
   options.modules.services.gnome-keyring = {
     enable = mkBoolOpt false;
   };
 
   config = mkIf cfg.enable {
-    home-manager.users.${config.user.name}.services.gnome-keyring = {
-      enable = true;
-      components = ["pkcs11" "secrets" "ssh"];
+    home-manager.users.${config.user.name} = {
+      services.gnome-keyring = {
+        enable = true;
+        components = [ "pkcs11" "secrets" "ssh" ];
+      };
     };
+
     security.pam.services.greetd.enableGnomeKeyring = true;
     security.pam.services.sddm.enableGnomeKeyring = true;
 
+    environment.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
     user.packages = with pkgs; [
       gnome.seahorse
     ];
