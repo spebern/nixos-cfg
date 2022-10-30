@@ -108,8 +108,8 @@ in {
           device = "${cfg.lightDevice}";
           format = "{percent}% {icon}";
           format-icons = ["" ""];
-          on-scroll-up = "${pkgs.light}/bin/light -T 1.1";
-          on-scroll-down = "${pkgs.light}/bin/light -T 0.9";
+          on-scroll-up = "${pkgs.light}/bin/light -T 0.9";
+          on-scroll-down = "${pkgs.light}/bin/light -T 1.1";
         };
         cpu = {
           format = "{usage}% <span font='11'></span>";
