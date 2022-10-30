@@ -85,6 +85,7 @@
       onedrive.enable = true;
       blueman.enable = true;
       mlocate.enable = true;
+      gnome-keyring.enable = true;
     };
     hardware = {
       wifi.enable = true;
