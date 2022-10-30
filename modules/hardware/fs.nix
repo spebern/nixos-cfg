@@ -7,6 +7,7 @@ in {
   options.modules.hardware.fs = {
     enable = mkBoolOpt false;
     zfs.enable = mkBoolOpt false;
+    ntfs.enable = mkBoolOpt false;
     ssd.enable = mkBoolOpt false;
     # TODO automount.enable = mkBoolOpt false;
   };
@@ -41,6 +42,12 @@ in {
         services.fstrim.enable = false;
         services.zfs.trim.enable = true;
       })
+    ]))
+
+    (mkIf cfg.ntfs.enable (mkMerge [
+      {
+        boot.supportedFilesystems = [ "ntfs" ];
+      }
     ]))
   ]);
 }
