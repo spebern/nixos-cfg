@@ -27,7 +27,6 @@
     desktop = {
       sway = {
         enable = true;
-        #scale = "1.5";
       };
       i3.enable = true;
       apps = {
