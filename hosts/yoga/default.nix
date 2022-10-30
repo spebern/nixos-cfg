@@ -86,6 +86,7 @@
       blueman.enable = true;
       mlocate.enable = true;
       gnome-keyring.enable = true;
+      greetd.enable = true;
     };
     hardware = {
       wifi.enable = true;
@@ -101,18 +102,6 @@
   };
 
   services = {
-    xserver = {
-      enable = true;
-      displayManager = {
-        sddm = {
-          enable = true;
-        };
-        defaultSession = "sway";
-      };
-      videoDrivers = [
-        "amd"
-      ];
-    };
     logind = {
       lidSwitch = "hibernate";
       lidSwitchDocked = "hibernate";
