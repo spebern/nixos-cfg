@@ -40,6 +40,7 @@ in
         pulseSupport = true;
         nlSupport = true;
       })
+      swayr
     ];
 
     services = {
@@ -102,6 +103,7 @@ in
           } # Auto lock\
           { command = "${pkgs.blueman}/bin/blueman-applet"; always = true; }
           { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; always = true; }
+          { command = "${pkgs.swayr}/bin/swayrd"; always = true; }
         ];
 
         bars = [ ];
@@ -199,6 +201,11 @@ in
 
           "${modifier}+b" = "splith";
           "${modifier}+v" = "splitv";
+
+          "${modifier}+Space" = "exec ${pkgs.swayr}/bin/swayr switch-window";
+          "${modifier}+Tab" = "exec ${pkgs.swayr}/bin/swayr switch-to-urgent-or-lru-window";
+          "${modifier}+Next" = "exec ${pkgs.swayr}/bin/swayr next-window";
+          "${modifier}+Prior" = "exec ${pkgs.swayr}/bin/swayr prev-window";
         };
       };
 
