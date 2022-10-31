@@ -31,6 +31,7 @@ in {
           pylint
           poetry
           matplotlib
+          mne-python
         ]))
       ];
 
