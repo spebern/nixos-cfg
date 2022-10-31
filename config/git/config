@@ -30,6 +30,8 @@
     insteadOf = gh:
 [url "git@github.com:"]
     insteadOf = ssh+gh:
+[url "git@ssh.dev.azure.com:v3/pentlandfirth/WhizCart/"]
+	insteadOf = https://dev.azure.com/pentlandfirth/WhizCart/_git/
 #[url "git@github.com:hlissner/"]
 #    insteadOf = gh:/
 [url "https://gitlab.com/"]

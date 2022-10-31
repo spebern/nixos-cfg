@@ -24,6 +24,7 @@ in
         godef
         golint
       ];
+      environment.variables.GOPRIVATE = "dev.azure.com/pentlandfirth/WhizCart";
     })
   ];
 }
