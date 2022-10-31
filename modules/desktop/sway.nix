@@ -36,10 +36,6 @@ in
       kanshi
       networkmanagerapplet
       blueman
-      (polybar.override {
-        pulseSupport = true;
-        nlSupport = true;
-      })
       swayr
     ];
 
