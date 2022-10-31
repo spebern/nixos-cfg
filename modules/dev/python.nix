@@ -34,6 +34,7 @@ in
           poetry
           matplotlib
           mne-python
+          scikitlearn
         ]))
       ];
 
