@@ -35,6 +35,8 @@ in
           matplotlib
           mne-python
           scikitlearn
+          pyqt5
+          tk
         ]))
       ];
 
