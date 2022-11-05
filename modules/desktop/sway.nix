@@ -90,7 +90,7 @@ in
           {
             command = ''
               ${pkgs.swayidle}/bin/swayidle \
-                timeout 240 '${pkgs.swaylock}/bin/swaylock' \
+                timeout 480 '${pkgs.swaylock}/bin/swaylock' \
                 timeout 480 'swaymsg "output * dpms off"' \
                 resume 'swaymsg "output * dpms on"' \
                 before-sleep '${pkgs.swaylock}/bin/swaylock'
