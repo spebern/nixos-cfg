@@ -34,6 +34,7 @@
         bitwarden.enable = true;
         flameshot.enable = true;
         zotero.enable = true;
+        remotedesktopmanager.enable = true;
       };
       com = {
         discord.enable = true;
