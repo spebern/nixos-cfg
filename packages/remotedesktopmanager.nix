@@ -1,13 +1,34 @@
-{ lib, stdenv, fetchurl, makeDesktopItem, copyDesktopItems, dpkg, glibc, gcc-unwrapped, autoPatchelfHook, webkitgtk, p11-kit, glib, lttng-ust, krb5, gtk3, openssl, gdk-pixbuf, librsvg, paper-icon-theme, makeWrapper }:
+{ lib
+, stdenv
+, fetchurl
+, makeDesktopItem
+, copyDesktopItems
+, dpkg
+, glibc
+, gcc-unwrapped
+, autoPatchelfHook
+, webkitgtk
+, p11-kit
+, glib
+, lttng-ust
+, krb5
+, gtk3
+, openssl
+, gdk-pixbuf
+, librsvg
+, paper-icon-theme
+, makeWrapper
+, wrapGAppsHook
+}:
 let
-
-  version = "2022.2.2.7";
+  version = "2022.3.0.4";
   src = fetchurl {
     url = "https://cdn.devolutions.net/download/Linux/RDM/${version}/RemoteDesktopManager_${version}_amd64.deb";
-    sha256 = "63fb3f4fbb575310fbbd7dd6ef03cf74d77ebc25336d89fdca925a0240e56bbe";
+    sha256 = "4950db9c2ed9f08d1cfa777eb4976a01da26e694bc9b9b93223d39b9dfc26fbe";
   };
 
-in stdenv.mkDerivation rec {
+in
+stdenv.mkDerivation rec {
   name = "remotedesktopmanager-${version}";
   system = "x86_64-linux";
 
@@ -17,6 +38,7 @@ in stdenv.mkDerivation rec {
     autoPatchelfHook # Automatically setup the loader, and do the magic
     dpkg
     makeWrapper
+    wrapGAppsHook
   ];
 
   buildInputs = [
