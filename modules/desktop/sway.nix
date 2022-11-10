@@ -87,12 +87,6 @@ in
             { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock"; }
             { event = "lock"; command = "lock"; }
           ];
-          timeouts = [
-            {
-              timeout = 360;
-              command = "${pkgs.swaylock}/bin/swaylock -fF";
-            }
-          ];
         };
       };
       wayland.windowManager.sway = {
