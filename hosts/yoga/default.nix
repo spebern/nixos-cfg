@@ -35,6 +35,7 @@
         flameshot.enable = true;
         zotero.enable = true;
         remotedesktopmanager.enable = true;
+        dbeaver.enable = true;
       };
       com = {
         discord.enable = true;
