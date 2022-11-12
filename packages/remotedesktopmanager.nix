@@ -21,10 +21,10 @@
 , wrapGAppsHook
 }:
 let
-  version = "2022.3.0.4";
+  version = "2022.3.0.5";
   src = fetchurl {
     url = "https://cdn.devolutions.net/download/Linux/RDM/${version}/RemoteDesktopManager_${version}_amd64.deb";
-    sha256 = "4950db9c2ed9f08d1cfa777eb4976a01da26e694bc9b9b93223d39b9dfc26fbe";
+    sha256 = "bc8105974298b4dcba984b287aef81313f6aaf6c8c4bb7beaa9989eaae77ce63";
   };
 
 in
