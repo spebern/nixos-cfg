@@ -70,6 +70,7 @@
       python.enable = true;
       latex.enable = true;
       json.enable = true;
+      yml.enable = true;
     };
     editors = {
       default = "nvim";
