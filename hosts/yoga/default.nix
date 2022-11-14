@@ -60,6 +60,9 @@
         qemu.enable = true;
         virt-manager.enable = true;
       };
+      gaming = {
+        steam.enable = true;
+      };
     };
     dev = {
       node.enable = true;
