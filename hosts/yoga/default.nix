@@ -69,6 +69,7 @@
       go.enable = true;
       python.enable = true;
       latex.enable = true;
+      json.enable = true;
     };
     editors = {
       default = "nvim";
