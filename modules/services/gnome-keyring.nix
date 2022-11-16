@@ -12,6 +12,27 @@ in
   };
 
   config = mkIf cfg.enable {
+    # https://github.com/NixOS/nixpkgs/issues/201324
+    nixpkgs.overlays = [
+      (
+        final: prev: {
+          gnome = prev.gnome // {
+            gnome-keyring = (prev.gnome.gnome-keyring.override {
+              glib = prev.glib.overrideAttrs (a: rec {
+                patches = a.patches ++ [
+                  (final.fetchpatch {
+                    url =
+                      "https://gitlab.gnome.org/GNOME/glib/-/commit/2a36bb4b7e46f9ac043561c61f9a790786a5440c.patch";
+                    sha256 = "b77Hxt6WiLxIGqgAj9ZubzPWrWmorcUOEe/dp01BcXA=";
+                  })
+                ];
+              });
+            });
+          };
+        }
+      )
+    ];
+
     home-manager.users.${config.user.name} = {
       services.gnome-keyring = {
         enable = true;
