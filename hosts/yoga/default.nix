@@ -36,6 +36,7 @@
         zotero.enable = true;
         remotedesktopmanager.enable = true;
         dbeaver.enable = true;
+        grimshot.enable = true;
       };
       com = {
         discord.enable = true;
@@ -93,6 +94,7 @@
       ssh.enable = true;
       docker.enable = true;
       onedrive.enable = true;
+      nextcloud.enable = true;
       blueman.enable = true;
       mlocate.enable = true;
       gnome-keyring.enable = true;
