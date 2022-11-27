@@ -30,8 +30,14 @@ in
         autoPrune.enable = true;
         enableOnBoot = mkDefault false;
         daemon.settings = {
-          "bip" = "172.39.1.5/24";
-          "fixed-cidr" = "172.39.1.0/25";
+          "bip" = "192.168.0.1/24";
+          "fixed-cidr" = "192.168.0.0/24";
+          "default-address-pools" = [
+            {
+              "base" = "172.27.0.0/16";
+              "size" = 20;
+            }
+          ];
         };
       };
     };
