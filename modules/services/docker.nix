@@ -2,9 +2,11 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.services.docker;
-    configDir = config.dotfiles.configDir;
-in {
+let
+  cfg = config.modules.services.docker;
+  configDir = config.dotfiles.configDir;
+in
+{
   options.modules.services.docker = {
     enable = mkBoolOpt false;
   };
@@ -27,7 +29,10 @@ in {
         enable = true;
         autoPrune.enable = true;
         enableOnBoot = mkDefault false;
-        # listenOptions = [];
+        daemon.settings = {
+          "bip" = "172.39.1.5/24";
+          "fixed-cidr" = "172.39.1.0/25";
+        };
       };
     };
   };
