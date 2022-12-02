@@ -37,6 +37,7 @@
         remotedesktopmanager.enable = true;
         dbeaver.enable = true;
         grimshot.enable = true;
+        libreoffice.enable = true;
       };
       com = {
         discord.enable = true;
