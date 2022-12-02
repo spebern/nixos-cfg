@@ -75,6 +75,7 @@
       latex.enable = true;
       json.enable = true;
       yml.enable = true;
+      solidity.enable = true;
     };
     editors = {
       default = "nvim";
