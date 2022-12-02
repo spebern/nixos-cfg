@@ -23,6 +23,7 @@ in
         gocode-gomod
         godef
         golint
+        golangci-lint
       ];
       environment.variables.GOPRIVATE = "dev.azure.com/pentlandfirth/WhizCart";
     })
