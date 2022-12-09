@@ -38,6 +38,7 @@
         dbeaver.enable = true;
         grimshot.enable = true;
         libreoffice.enable = true;
+        postman.enable = true;
       };
       com = {
         discord.enable = true;
