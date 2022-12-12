@@ -81,9 +81,6 @@ in {
         layer = "top";
         position = "top";
         height = 16;
-        output = [
-          "eDP-1"
-        ];
         tray = { spacing = 10; };
         modules-center = [ "clock" ];
         modules-left = [ "sway/workspaces" "sway/mode" ];
