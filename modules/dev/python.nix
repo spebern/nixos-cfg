@@ -31,7 +31,6 @@ in
           black
           setuptools
           pylint
-          poetry
           matplotlib
           mne-python
           scikitlearn
