@@ -204,6 +204,11 @@ in
             "${modifier}+Shift+9" = "move container to workspace number 9";
             "${modifier}+Shift+0" = "move container to workspace number 10";
 
+            "${modifier}+Control+Shift+H" = "move workspace to output left";
+            "${modifier}+Control+Shift+L" = "move workspace to output right";
+            "${modifier}+Control+Shift+K" = "move workspace to output up";
+            "${modifier}+Control+Shift+J" = "move workspace to output down";
+
             "Control+Up" = "resize shrink height 20px";
             "Control+Down" = "resize grow height 20px";
             "Control+Left" = "resize shrink width 20px";
