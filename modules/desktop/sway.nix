@@ -37,6 +37,7 @@ in
       networkmanagerapplet
       blueman
       swayr
+      wdisplays
     ];
 
     services = {
