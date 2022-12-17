@@ -89,6 +89,37 @@ in
             { event = "lock"; command = "lock"; }
           ];
         };
+        kanshi = {
+          enable = true;
+          profiles = {
+            lonely = {
+              outputs = [
+                {
+                  criteria = "eDP-1";
+                  mode = "2880x1800@90.000Hz";
+                  position = "2560,0";
+                  scale = 1.5;
+                }
+              ];
+            };
+            sharmin = {
+              outputs = [
+                {
+                  criteria = "Lenovo Group Limited P27h-20 V906YMAV";
+                  mode = "2560x1440@59.951Hz";
+                  position = "0,0";
+                  scale = 1.0;
+                }
+                {
+                  criteria = "eDP-1";
+                  mode = "2880x1800@90.000Hz";
+                  position = "2560,0";
+                  scale = 1.5;
+                }
+              ];
+            };
+          };
+        };
       };
       wayland.windowManager.sway = {
         enable = true;
