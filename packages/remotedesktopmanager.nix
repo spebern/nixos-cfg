@@ -19,12 +19,13 @@
 , paper-icon-theme
 , makeWrapper
 , wrapGAppsHook
+, systemd
 }:
 let
-  version = "2022.3.0.5";
+  version = "2022.3.0.8";
   src = fetchurl {
     url = "https://cdn.devolutions.net/download/Linux/RDM/${version}/RemoteDesktopManager_${version}_amd64.deb";
-    sha256 = "bc8105974298b4dcba984b287aef81313f6aaf6c8c4bb7beaa9989eaae77ce63";
+    sha256 = "sha256-pwbS7KJzzj71V7+KVyQPq/oAeTs0d39w4ooexmxWj9g=";
   };
 
 in
@@ -39,6 +40,10 @@ stdenv.mkDerivation rec {
     dpkg
     makeWrapper
     wrapGAppsHook
+  ];
+
+  runtimeDependencies = [
+    (lib.getLib systemd)
   ];
 
   buildInputs = [
