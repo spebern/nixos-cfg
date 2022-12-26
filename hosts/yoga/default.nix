@@ -115,6 +115,9 @@
       openvpn.enable = true;
     };
     theme.active = "alucard";
+    misc = {
+      scowl.enable = true;
+    };
   };
 
   services = {
