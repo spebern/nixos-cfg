@@ -15,7 +15,7 @@ in
     (mkIf cfg.enable {
       user.packages = with pkgs; [
         texlab
-        texlive.combined.scheme-medium
+        texlive.combined.scheme-small
       ];
     })
   ];
