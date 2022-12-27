@@ -134,7 +134,10 @@
     driSupport = true;
     driSupport32Bit = true;
   };
-
+  boot.extraModprobeConfig = ''
+    options iwlmvm power_scheme=1
+    options iwlwifi power_save=0
+  '';
   services.xserver = {
     enable = true;
     displayManager = {
