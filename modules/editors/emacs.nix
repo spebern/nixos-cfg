@@ -6,9 +6,11 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.editors.emacs;
-    configDir = config.dotfiles.configDir;
-in {
+let
+  cfg = config.modules.editors.emacs;
+  configDir = config.dotfiles.configDir;
+in
+{
   options.modules.editors.emacs = {
     enable = mkBoolOpt false;
     doom = rec {
@@ -24,22 +26,22 @@ in {
 
     user.packages = with pkgs; [
       ## Emacs itself
-      binutils       # native-comp needs 'as', provided by this
+      binutils # native-comp needs 'as', provided by this
       # 28.2 + native-comp
-      ((emacsPackagesFor emacsNativeComp).emacsWithPackages
+      ((emacsPackagesFor emacsLsp).emacsWithPackages
         (epkgs: [ epkgs.vterm ]))
 
       ## Doom dependencies
       git
-      (ripgrep.override {withPCRE2 = true;})
-      gnutls              # for TLS connectivity
+      (ripgrep.override { withPCRE2 = true; })
+      gnutls # for TLS connectivity
 
       ## Optional dependencies
-      fd                  # faster projectile indexing
-      imagemagick         # for image-dired
+      fd # faster projectile indexing
+      imagemagick # for image-dired
       (mkIf (config.programs.gnupg.agent.enable)
-        pinentry_emacs)   # in-emacs gnupg prompts
-      zstd                # for undo-fu-session/undo-tree compression
+        pinentry_emacs) # in-emacs gnupg prompts
+      zstd # for undo-fu-session/undo-tree compression
 
       ## Module dependencies
       # :checkers spell
@@ -52,7 +54,7 @@ in {
       texlive.combined.scheme-medium
       # :lang beancount
       beancount
-      unstable.fava  # HACK Momentarily broken on nixos-unstable
+      unstable.fava # HACK Momentarily broken on nixos-unstable
     ];
 
     env.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ];
