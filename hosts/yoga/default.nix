@@ -35,6 +35,7 @@
         flameshot.enable = true;
         zotero.enable = true;
         remotedesktopmanager.enable = true;
+        ticktick.enable = true;
         dbeaver.enable = true;
         grimshot.enable = true;
         libreoffice.enable = true;
