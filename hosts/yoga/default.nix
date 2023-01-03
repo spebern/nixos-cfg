@@ -34,7 +34,6 @@
         bitwarden.enable = true;
         flameshot.enable = true;
         zotero.enable = true;
-        remotedesktopmanager.enable = true;
         ticktick.enable = true;
         dbeaver.enable = true;
         grimshot.enable = true;
@@ -52,8 +51,6 @@
         firefox.enable = true;
       };
       media = {
-        documents.enable = true;
-        recording.enable = true;
         spotify.enable = true;
       };
       term = {
@@ -97,7 +94,6 @@
     services = {
       ssh.enable = true;
       docker.enable = true;
-      onedrive.enable = true;
       nextcloud.enable = true;
       blueman.enable = true;
       mlocate.enable = true;
