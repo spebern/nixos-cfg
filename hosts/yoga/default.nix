@@ -102,6 +102,7 @@
     };
     hardware = {
       wifi.enable = true;
+      wifi.iwd.enable = false;
       fs = {
         enable = true;
         ntfs.enable = true;

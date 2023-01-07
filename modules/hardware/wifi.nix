@@ -7,12 +7,23 @@ in
 {
   options.modules.hardware.wifi = {
     enable = mkBoolOpt false;
+    iwd.enable = mkBoolOpt true;
   };
 
   config = mkIf cfg.enable {
-    networking = {
-      networkmanager.wifi.backend = "iwd";
-      wireless.iwd.enable = true;
-    };
+    networking =
+      if cfg.iwd.enable then
+        {
+          networkmanager.wifi.backend = "iwd";
+          wireless.iwd = {
+            enable = true;
+            settings = {
+              General = {
+                ControlPortOverNL80211 = false;
+              };
+            };
+          };
+        } else
+        { };
   };
 }
