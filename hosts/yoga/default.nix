@@ -115,6 +115,7 @@
     theme.active = "alucard";
     misc = {
       scowl.enable = true;
+      hugo.enable = true;
     };
   };
 
